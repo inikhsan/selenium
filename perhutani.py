@@ -1,11 +1,15 @@
 from selenium import webdriver
+
+
 opsi = webdriver.firefox.options.Options()
 opsi.headless = False
+
 binary = webdriver.firefox.firefox_binary.FirefoxBinary('C:\\Program Files\\Mozilla Firefox\\firefox.exe')
 cap = webdriver.common.desired_capabilities.DesiredCapabilities().FIREFOX
 cap['marionette'] = True
 browser=webdriver.Firefox(options=opsi,capabilities=cap,firefox_binary=binary)
 browser.get('https://tokoperhutani.com/')
+
 pemberitahuan = browser.find_element_by_xpath('//*[@id="bannerModal"]/div/div/div[1]/button').click()
 retail = browser.get('https://tokoperhutani.com/beranda')
 login = browser.find_element_by_xpath('/html/body/div/nav/div/div[2]/ul/li[1]/a/strong').click()
